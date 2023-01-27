@@ -13,4 +13,9 @@ public class PageController{
     public String home(@RequestParam(defaultValue = "world", required = false) String name, ModelMap modelMap){
         return "index";
     }
+
+    @GetMapping("/dashboard")
+    public String dashboardAdmin(ModelMap modelMap){
+        return "admin/adminpage";
+    }
 }
