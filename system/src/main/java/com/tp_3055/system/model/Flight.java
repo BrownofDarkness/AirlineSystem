@@ -20,17 +20,22 @@ public class Flight {
     private Long id;
 
     private LocalTime hour;
-    private String depart, arival;
+    private String departCountry,departTown, arivalCountry,arivalTown,status;
     private Double price;
+    private int totalseats;
 
     @OneToMany(mappedBy = "Flight", cascade = CascadeType.ALL)
     private Set<Reservation> Reservations = new HashSet<>();
 
-    public Flight(LocalTime hour, String depart, String arival, Double price) {
+    public Flight(LocalTime hour, String departCountry, String departTown, String arivalCountry, String arivalTown, Double price, int totalseats) {
         this.hour = hour;
-        this.depart = depart;
-        this.arival = arival;
+        this.departCountry = departCountry;
+        this.arivalCountry = arivalCountry;
+        this.departCountry = departTown;
+        this.arivalCountry = arivalTown;
         this.price = price;
+        this.totalseats = totalseats;
+        this.status = "active";
     }
 
     public LocalTime getHour() {
@@ -45,20 +50,36 @@ public class Flight {
         return id;
     }
 
-    public String getDepart() {
-        return depart;
+    public String getDepartCountry() {
+        return departCountry;
     }
 
     public void setDepart(String depart) {
-        this.depart = depart;
+        this.departCountry = depart;
     }
 
-    public String getArival() {
-        return arival;
+    public String getDepartTown() {
+        return departTown;
     }
 
-    public void setArival(String arival) {
-        this.arival = arival;
+    public void setDepartTown(String depart) {
+        this.departTown = depart;
+    }
+
+    public String getArivalCountry() {
+        return arivalCountry;
+    }
+
+    public void setArivalCountry(String arival) {
+        this.arivalCountry = arival;
+    }
+
+    public String getArivalTown() {
+        return arivalTown;
+    }
+
+    public void setArivalTown(String arival) {
+        this.arivalTown = arival;
     }
 
     public Double getPrice() {
@@ -68,4 +89,18 @@ public class Flight {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    public int getTotalseats() {
+        return totalseats;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
 }

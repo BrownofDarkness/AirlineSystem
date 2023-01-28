@@ -17,18 +17,20 @@ public abstract class User {
     private String lastName;
     private String email;
     private int phoneNumber;
+    private String password;
 
     public User(){
         super();
     }
 
-    public User(String username, String firstName, String lastName, String email, int phoneNumber) {
+    public User(String username, String firstName, String lastName, String email, int phoneNumber, String password) {
         super();
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
     public Long getId() {
@@ -73,5 +75,13 @@ public abstract class User {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
