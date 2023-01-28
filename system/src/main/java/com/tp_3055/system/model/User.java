@@ -18,6 +18,10 @@ public abstract class User {
     private String email;
     private int phoneNumber;
 
+    public User(){
+        super();
+    }
+
     public User(String username, String firstName, String lastName, String email, int phoneNumber) {
         super();
         this.username = username;

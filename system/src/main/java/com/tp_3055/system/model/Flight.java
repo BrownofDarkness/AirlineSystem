@@ -1,21 +1,30 @@
 package com.tp_3055.system.model;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Flight {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "flight_id")
     private Long id;
 
     private LocalTime hour;
     private String depart, arival;
     private Double price;
+
+    @OneToMany(mappedBy = "Flight", cascade = CascadeType.ALL)
+    private Set<Reservation> Reservations = new HashSet<>();
 
     public Flight(LocalTime hour, String depart, String arival, Double price) {
         this.hour = hour;
