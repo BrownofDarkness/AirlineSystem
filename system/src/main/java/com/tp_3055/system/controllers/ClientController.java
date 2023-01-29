@@ -20,6 +20,8 @@ public class ClientController {
 
     @GetMapping("/regsiter")
     public String singup(Model model){
+        Client client = new Client();
+        model.addAttribute("client", client);
         return "user/singupform";
     }
 
