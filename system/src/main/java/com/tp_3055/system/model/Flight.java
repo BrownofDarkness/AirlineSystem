@@ -35,7 +35,7 @@ public class Flight {
         this.arivalCountry = arivalTown;
         this.price = price;
         this.totalseats = totalseats;
-        this.status = "active";
+        this.status = "in_progress";
     }
 
     public LocalTime getHour() {
