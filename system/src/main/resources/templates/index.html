@@ -13,10 +13,10 @@
 <body>
     <div id="navbar">
         <ul>
-            <li><a th:href="@{/}">Signup</a></li>
+            <li><a th:href="@{/register}">Signup</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="@{/}">Home</a></li>
+            <li><a th:href="@{/}">Home</a></li>
         </ul>
     </div>
 
@@ -28,7 +28,7 @@
     </div>
 
     <div class="center">
-        <a  style="padding-left: 66px;padding-right: 66px;margin-right: 16px;" class="btn" th:href="@{/}">Login</a>
+        <a  style="padding-left: 66px;padding-right: 66px;margin-right: 16px;" class="btn" th:href="@{/singin}">Login</a>
         <a style="margin-left: 16px;" class="btn" href="#flightplanning">View flight planning</a>
     </div>
 </body>

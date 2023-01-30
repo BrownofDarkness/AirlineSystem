@@ -18,7 +18,7 @@ public class PageController{
 
     @GetMapping("/")
     public String home(Model model){
-        model.addAttribute("allflightlist", flightServicesImpl.getAllClients());
+        //model.addAttribute("allflightlist", flightServicesImpl.getAllClients());
         return "index";
     }
 
