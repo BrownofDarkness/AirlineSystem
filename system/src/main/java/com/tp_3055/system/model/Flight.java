@@ -3,7 +3,6 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,8 +23,9 @@ public class Flight {
     private Double price;
     private int totalseats;
 
-    @OneToMany(mappedBy = "Flight", cascade = CascadeType.ALL)
-    private Set<Reservation> Reservations = new HashSet<>();
+    @OneToMany(mappedBy = "flight")
+    private Set<Reservation> reservations = new HashSet<>();
+
 
     public Flight(LocalTime hour, String departCountry, String departTown, String arivalCountry, String arivalTown, Double price, int totalseats) {
         this.hour = hour;
@@ -102,5 +102,8 @@ public class Flight {
         this.status = status;
     }
 
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
     
 }

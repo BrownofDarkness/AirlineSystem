@@ -1,15 +1,16 @@
 package com.tp_3055.system.model;
-
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
 public abstract class User {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @JoinColumn(nullable = false)
     private Long id;
 
     private String username;

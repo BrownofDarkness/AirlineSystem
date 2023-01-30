@@ -3,10 +3,10 @@ package com.tp_3055.system.model;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -14,25 +14,26 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Reservation {
 
-    @Id
+    @EmbeddedId
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "reservation_id")
     private Long id;
 
+
+    private String type;
+    private LocalDate dateCreation;
+    private LocalDate dateExpiration;
+
     @ManyToOne
-    @JoinColumn(name = "flight_id")
+    @JoinColumn(name = "fligh_id")
     private Flight flight;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 
-    private String type;
-    private LocalDate dateCreation;
-    private LocalDate dateExpiration;
 
-    public Reservation(Flight flight, String type) {
-        this.flight = flight;
+    public Reservation(String type) {
         this.type = type;
         this.dateCreation = LocalDate.now();
     }
@@ -41,13 +42,6 @@ public class Reservation {
         return id;
     }
 
-    public Flight getFlight() {
-        return flight;
-    }
-
-    public void setFlight(Flight flight) {
-        this.flight = flight;
-    }
 
     public String getType() {
         return type;
@@ -67,6 +61,22 @@ public class Reservation {
 
     public void setDateExpiration(LocalDate date) {
         this.dateExpiration = date;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client= client;
     }
 }
 

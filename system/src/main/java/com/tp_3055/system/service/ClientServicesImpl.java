@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.tp_3055.system.model.Client;
 import com.tp_3055.system.repos.ClientRepository;
 
-public class ClientservicesImpl implements ClientServices {
+public class ClientServicesImpl implements ClientServices {
     
     @Autowired private ClientRepository clientRepo;
 
