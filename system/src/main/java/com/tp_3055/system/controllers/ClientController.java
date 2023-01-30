@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tp_3055.system.model.Client;
+import com.tp_3055.system.model.Reservation;
 import com.tp_3055.system.service.ClientServicesImpl;
+import com.tp_3055.system.service.ReservationServicesImpl;
 
 @Controller
 public class ClientController {
     
     @Autowired(required = false)
     private ClientServicesImpl clientservicesImpl;
+
+    @Autowired(required = false)
+    private ReservationServicesImpl reservationServicesImpl;
 
     @GetMapping("/register")
     public String singup(Model model){
@@ -31,7 +36,20 @@ public class ClientController {
         return "user/userhome";
     }
 
-    @PostMapping("/save")
+    @GetMapping("/reservation")
+    public String getReservationView(Model model){
+        Reservation reservation = new Reservation();
+        model.addAttribute("reservation", reservation);
+        return "flights/reservations";
+    }
+
+    @PostMapping("/saveReservation")
+    public String saveReservation(@ModelAttribute("reservation") Reservation reservation){
+        reservationServicesImpl.save(reservation);
+        return "redirect:/";
+    }
+
+    @PostMapping("/saveClient")
     public String save(@ModelAttribute("client") Client client){
         clientservicesImpl.save(client);
         return "redirect:/";

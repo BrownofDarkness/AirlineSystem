@@ -32,6 +32,9 @@ public class Reservation {
     @JoinColumn(name = "client_id")
     private Client client;
 
+    public Reservation() {
+        
+    }
 
     public Reservation(String type) {
         this.type = type;

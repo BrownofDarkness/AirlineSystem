@@ -18,9 +18,9 @@ public class FlightController {
     private FlightServicesImpl flightServicesImpl;
 
 
-    @GetMapping("/create")
+    @GetMapping("/createflight")
     public String newFlight(Model model){
-        return "index";
+        return "flights/create";
     }
 
 
@@ -41,7 +41,7 @@ public class FlightController {
     public String update(@PathVariable(value = "id") Long id, Model model){
         Flight flight = flightServicesImpl.getById(id);
         model.addAttribute("flight", flight);
-        return "index";
+        return "flights/update";
     }
 
     @GetMapping("/deleteflight/{id}")

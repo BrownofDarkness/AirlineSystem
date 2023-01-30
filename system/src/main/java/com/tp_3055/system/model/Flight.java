@@ -27,6 +27,10 @@ public class Flight {
     private Set<Reservation> reservations = new HashSet<>();
 
 
+    public Flight(){
+        
+    }
+
     public Flight(LocalTime hour, String departCountry, String departTown, String arivalCountry, String arivalTown, Double price, int totalseats) {
         this.hour = hour;
         this.departCountry = departCountry;
