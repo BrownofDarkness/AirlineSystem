@@ -6,82 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit profile</title>
     <link th:href="@{/static/css/loginform.css}" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
-    <div class="text" style="margin-top: 60px;">
+    <div class="text" style="margin-top: 20px;">
         <p>Welcome to Airline Reservation System</p>
     </div>
 
-    <div class="text" style="margin-top: 50px;">
+    <div class="text" style="margin-top: 30px;">
         <p>Edit profile</p>
     </div>
 
-    <div class="formcontainer" style="margin-top: 16px;">
-        <form action="#">
-            <div class="row">
-                <div class="col-25">
-                    <label for="firstname">Firstname</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="firstname" name="firstname" />
-                </div>                
-            </div>
+    <div class="modal-content">
+        <div class="formcontainer" style="margin-top: 16px;">
+            <form action="#">
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" name="firstname" />
+                <label for="username">Lastname</label>
+                <input type="text" id="lastname" name="lastname" />
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" />
+                <label for="oldpassword">Old Password</label>
+                <input type="password" id="oldpassword" name="oldpassword" />
+                <label for="newpassword">New Password</label>
+                <input type="password" id="newpassword" name="newpassword" />
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" />
+                <input type="submit" value="Edit"/>
+            </form>
+        </div>        
+    </div>
 
-            <div class="row">
-                <div class="col-25">
-                    <label for="username">Lastname</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="lastname" name="lastname" />
-                </div>                
-            </div>
-
-            <div class="row">
-                <div class="col-25">
-                    <label for="email">Email</label>
-                </div>
-                <div class="col-75">
-                    <input type="email" id="email" name="email" />
-                </div>                
-            </div>
-
-            <div class="row">
-                <div class="col-25">
-                    <label for="oldpassword">Old Password</label>
-                </div>
-                <div class="col-75">
-                    <input type="password" id="oldpassword" name="oldpassword" />
-                </div>            
-            </div>
-
-            <div class="row">
-                <div class="col-25">
-                    <label for="newpassword">New Password</label>
-                </div>
-                <div class="col-75">
-                    <input type="password" id="newpassword" name="newpassword" />
-                </div>            
-            </div>
-
-            <div class="row">
-                <div class="col-25">
-                    <label for="confirmpassword">Confirm Password</label>
-                </div>
-                <div class="col-75">
-                    <input type="password" id="confirmpassword" name="confirmpassword" />
-                </div>            
-            </div>
-
-            <div class="row">
-                <div class="col-50">
-                    <input type="submit" value="View flight planning">
-                </div>
-                <div class="col-50">
-                    <input type="submit" value="Edit"/>
-                </div>
-            </div>
-
-        </form>
-      </div>
 </body>
 </html>
