@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link th:href="@{/static/css/loginform.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/loginform.css">
 </head>
 <body>
     <div class="text">
@@ -16,36 +17,18 @@
         <p>LOGIN</p>
     </div>
 
-    <div class="formcontainer">
-        <form id="form" action="" onsubmit="myfunc()">
-            <div class="row">
-                <div class="col-25">
-                    <label for="username">Username</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="username" name="firstname" />
-                </div>                
-            </div>
+    <div class="modal-content">
+        <div id="formcontainer">
+            <form id="form" action="">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="firstname" />
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <input id="user" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
 
-            <div class="row">
-                <div class="col-25">
-                    <label for="password">Password</label>
-                </div>
-                <div class="col-75">
-                    <input type="password" id="password" name="password" />
-                </div>            
-            </div>
-            <div class="row">
-                <div class="col-50">
-                    <input id="user" type="submit" value="Login">
-                </div>
-                <div class="col-50">
-                    <input id="admin" type="submit" value="Admin login"/>
-                </div>
-            </div>
-
-        </form>
-      </div>
 
       <script>
         function myfunc() {

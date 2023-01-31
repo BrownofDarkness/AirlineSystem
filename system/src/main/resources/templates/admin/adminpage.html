@@ -4,34 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin home</title>
-    <link rel="stylesheet" th:href="@{/static/css/adminpage.css}">
+    <title>Edit Flight</title>
+    <link rel="stylesheet" th:href="@{static/css/adminpanel.css}">
+    <script th:src="@{static/js/modal.js}"></script>
+
 </head>
 <body>
-    <div class="text">
-        <p>Welcome Ronan</p>
-    </div>
+    <div>
+        <ul style="padding: 5px;">
+            <li class="a"><span>Administrator Panel</span></li>
+            <div style="float: right;">
+                <li><span id="myBtn" onclick="modal()">Create new flight</span></li>
+                <li><a href="#contact">Flight Statistics</a></li>
+                <li><a id="out" href="#home">Logout</a></li>
+            </div>
+          </ul>
+    </div> 
 
-        <div class="topright">
-            <button>Logout</button>
-        </div>        
 
-
-    <div class="center">
-        <div class="row">
-            <div class="col-50">
-                <button><a href="../flights/create.html">Create a Flight</a></button>
-                <button><a href="../flights/update.html">Update a Flight</a></button>
-            </div>            
-        </div>
-
-        <div class="row">
-            <div class="col-50">
-                <button><a href="../flights/delete.html">Cancel a Flight</a></button>
-                <button><a href="../flights//statistics.html">View Flights Statistics</a></button>             
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="formcontainer">
+                <form action="" method="post">
+                    <label for="hour">Hour</label>
+                    <input type="text" name="hour" id="hour">
+                    <label for="depart">Departure Country</label>
+                    <input type="text" name="depart" id="depart">
+                    <label for="dtown">Departure town</label>
+                    <input type="text" name="dtown" id="dtown">
+                    <label for="arrival">Arrival Country</label>
+                    <input type="text" name="arrival" id="arrival">
+                    <label for="atown">Arrival town</label>
+                    <input type="text" name="atown" id="atown">
+                    <label for="price">Price</label>
+                    <input type="text" name="price" id="price">
+                    <label for="seats">Total seats</label>
+                    <input type="text" name="seats" id="seats">
+                    <input type="submit" value="Create" />
+                </form> 
             </div>
         </div>
-    </div>
+    </div> 
 
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Flight Id</th>
+                <th>Departure Destination</th>
+                <th>Arrival Destination</th>
+                <th>Departure Time</th>
+                <th>Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Cameroon</td>
+                <td>Nigeria</td>
+                <td>12:15</td>
+                <td>23-01-2023</td>
+                <td><a id="first" href="#deleteflight">Delete</a></td>
+                <td><a id="second" href="#update">Update</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>France</td>
+                <td>USA</td>
+                <td>18:45</td>
+                <td>23-01-2023</td>
+                <td><a id="first" href="#edeleteflight">Delete</a></td>
+                <td><a id="second" href="#update">Update</a></td>
+
+            </tr>
+        </table>        
+    </div>
 </body>
 </html>
