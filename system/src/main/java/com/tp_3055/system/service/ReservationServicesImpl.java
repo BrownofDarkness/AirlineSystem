@@ -5,17 +5,17 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.tp_3055.system.model.Client;
 import com.tp_3055.system.model.Reservation;
+import com.tp_3055.system.model.User;
 import com.tp_3055.system.repos.ReservationRepository;
 
-public class ReservationServicesImpl implements ReservationServices{
+public class ReservationServicesImpl implements ReservationServices {
 
     @Autowired
     private ReservationRepository reservationRepo;
 
     @Override
-    public List<Reservation> getAllYourreservations(Client client)
+    public List<Reservation> getAllYourreservations(User client)
     {
         return reservationRepo.findAll();
     }

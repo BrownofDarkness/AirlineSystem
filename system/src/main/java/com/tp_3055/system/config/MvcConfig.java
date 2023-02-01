@@ -13,11 +13,10 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
-                .addResourceHandler("/static/**") // « /static/css/myStatic.css
-                .addResourceLocations("classpath:/static/") // Default Static Loaction
-                .setCachePeriod( 3600 )
-                .resourceChain(true)
-                .addResolver(new PathResourceResolver()); //4.1
+            .addResourceHandler("/static/**") // « /static/css/myStatic.css
+            .addResourceLocations("classpath:/static/") // Default Static Loaction.setCachePeriod( 3600 )
+            .resourceChain(true) 
+            .addResolver(new PathResourceResolver()); //4.1
 
 
     }
