@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Edit Flight</title>
     <link rel="stylesheet" th:href="@{static/css/adminpanel.css}">
     <script th:src="@{static/js/modal.js}"></script>
-    <link rel="stylesheet" th:href="@{static/css/adminpanel.css}">
-    <script th:src="@{static/js/modal.js}"></script>
+
 </head>
 <body>
     <div>
@@ -16,6 +15,7 @@
             <li class="a"><span>Administrator Panel</span></li>
             <div style="float: right;">
                 <li><span id="myBtn" onclick="modal()">Create new flight</span></li>
+                <li><a href="#contact">Flight Statistics</a></li>
                 <li><a id="out" href="#home">Logout</a></li>
             </div>
           </ul>
@@ -40,7 +40,7 @@
                     <label for="price">Price</label>
                     <input type="text" name="price" id="price">
                     <label for="seats">Total seats</label>
-                    <input type="number" name="seats" id="seats">
+                    <input type="text" name="seats" id="seats">
                     <input type="submit" value="Create" />
                 </form> 
             </div>
