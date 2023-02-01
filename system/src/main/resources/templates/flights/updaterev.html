@@ -15,7 +15,8 @@
 
    <div class="modal-content">
     <div id="formcontainer">
-      <form action="" id="form" method="post" th:action="@{/saveReservation_user{user}_flight{flight} (user=${#request.userPrincipal.principal.getUser.getId},flight=${flight.getId}) }" th:object="${reservation}">
+      <form action="" id="form" method="post" th:action="@{/updateReservation}" th:object="${reserv}">
+        <input type="hidden" th:field="*{id}"/>
         <label for="type">Class</label>
         <select id="type" th:field="*{type}">
           <option value="First">First </option>

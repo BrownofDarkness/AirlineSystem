@@ -10,9 +10,9 @@
 <body>
     <div>
         <ul style="padding: 5px;">
-            <li class="a"><span>Welcome User ?  </span></li>
+            <li class="a"><span>Welcome <b th:text="${user.getUsername}"></b> ?</span></li>
             <div style="float: right;">
-                <li><a href="editprofile.html">Edit profile</a></li>
+                <li><a th:href="@{/editProfile_{id}(id=${user.getId})}">Edit profile</a></li>
                 <li><a id="out" href="#home">Logout</a></li>
             </div>
           </ul>
@@ -47,6 +47,17 @@
                 <td>kobo</td>
                 <td><a id="second" href="#Re">Re-schedule  </a></td>
                 <td><a id="first" href="#cancel">Cancel</a></td>
+            </tr>
+
+            <tr th:each="reserv:${reservs}">
+                <td th:text="${reserv.getId}">2</td>
+                <td th:text="${reserv.getType}">2</td>
+                <td th:text="${reserv.getDateCreation}">2</td>
+                <td th:text="${reserv.getFlight.getDepartCountry}">France</td>
+                <td th:text="${reserv.getFlight.getArivalCountry}">USA</td>
+                <td><a id="second" th:href="@{/updateResview_{id} (id=${reserv.getId})}">Re-schedule  </a></td>
+                <td><a id="first" href="#cancel">Cancel</a></td>
+
             </tr>
         </table>        
     </div>

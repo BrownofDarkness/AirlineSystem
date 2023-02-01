@@ -1,5 +1,6 @@
 package com.tp_3055.system.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tp_3055.system.model.Flight;
 import com.tp_3055.system.repos.FlightRepository;
+// import com.tp_3055.system.repos.ReservationRepository;
 import com.tp_3055.system.service.FlightServicesImpl;
 
 @Controller
@@ -23,6 +25,9 @@ public class FlightController {
     @Autowired
     private FlightRepository flightRepository;
 
+    // @Autowired
+    // private ReservationRepository reservationRepository;
+
 
     @GetMapping("/createflight")
     public String newFlight(Model model){
@@ -32,6 +37,14 @@ public class FlightController {
         System.out.println();
         model.addAttribute("flight", flight);
         return "flights/create";
+    }
+
+    @GetMapping("/flightplanning")
+    public String flightPlanning(Model model){
+        List<Flight> flights = flightRepository.findAll();
+        
+        model.addAttribute("flights", flights);
+        return "flights/planning";
     }
 
 

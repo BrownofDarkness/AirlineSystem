@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link th:href="@{/static/css/loginform.css}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="../../static/css/loginform.css">
 
 </head>
 <body>
@@ -19,23 +18,23 @@
     </div>
     <div class="modal-content">
         <div class="formcontainer" style="margin-top: 16px;">
-            <form id="form" action="#" method="post">
+            <form id="form" th:action="@{/saveUser}" method="post" th:object="${user}">
                 <label for="username">Username</label>
-                <input type="text" th:field="*{username}" id="username" name="username" />
+                <input type="text" th:field="*{username}" id="username" name="username" required/>
                 <label for="firstname">Firstname</label>
-                <input type="text" th:field="*{firstName}" id="firstname" name="firstname" />
+                <input type="text" th:field="*{firstName}" id="firstname" name="firstname" required/>
                 <label for="username">Lastname</label>
-                <input type="text" th:field="*{lastName}" id="lastname" name="lastname" />
+                <input type="text" th:field="*{lastName}" id="lastname" name="lastname" required/>
                 <label for="email">Email</label>
-                <input type="email" th:field="*{email}" id="email" name="email" />
+                <input type="email" th:field="*{email}" id="email" name="email" required/>
                 <label for="number">Phone number</label>
                 <input type="number" th:field="*{phoneNumber}" id="phone" name="phone" required/>
                 <label for="password">Password</label>
-                <input type="password" th:field="*{password}" id="password" name="password" />
+                <input type="password" th:field="*{password}" id="password" name="password" required/>
                 <input type="submit" value="Sign Up">
             </form>
         </div>        
-    </div>
+    </div> 
 
 </body>
 </html>

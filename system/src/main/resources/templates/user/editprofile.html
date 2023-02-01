@@ -20,20 +20,21 @@
 
     <div class="modal-content">
         <div class="formcontainer" style="margin-top: 16px;">
-            <form action="#" method="post">
+            <form id="form" th:action="@{/updateUser}" method="post" th:object="${user}">
+                <input type="hidden" th:field="*{id}"/>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" />
+                <input type="text" th:field="*{username}" id="username" name="username" required/>
                 <label for="firstname">Firstname</label>
-                <input type="text" id="firstname" name="firstname" />
+                <input type="text" th:field="*{firstName}" id="firstname" name="firstname" required/>
                 <label for="username">Lastname</label>
-                <input type="text" id="lastname" name="lastname" />
+                <input type="text" th:field="*{lastName}" id="lastname" name="lastname" required/>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" />
+                <input type="email" th:field="*{email}" id="email" name="email" required/>
                 <label for="number">Phone number</label>
-                <input type="number" id="number" name="number" />
+                <input type="number" th:field="*{phoneNumber}" id="phone" name="phone" required/>
                 <label for="password">Password</label>
-                <input type="password" id="password" />
-                <input type="submit" value="Edit"/>
+                <input type="text" th:field="*{password}" id="password" name="password" required/>
+                <input type="submit" value="Sign Up">
             </form>
         </div>        
     </div>

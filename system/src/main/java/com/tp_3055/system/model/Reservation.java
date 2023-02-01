@@ -1,12 +1,12 @@
 package com.tp_3055.system.model;
 
-import java.time.LocalDate;
+// import java.time.LocalDate;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -14,15 +14,17 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Reservation {
 
-    @EmbeddedId
+    @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "reservation_id")
     private Long id;
 
 
     private String type;
-    private LocalDate dateCreation;
-    private LocalDate dateExpiration;
+    @Column(nullable = false, length = 15)
+    private String dateCreation;
+
+    @Column(length = 15)
+    private String dateExpiration;
 
     @ManyToOne
     @JoinColumn(name = "fligh_id")
@@ -36,13 +38,17 @@ public class Reservation {
         
     }
 
-    public Reservation(String type) {
+    public Reservation(String type, String dateCreation) {
         this.type = type;
-        this.dateCreation = LocalDate.now();
+        this.dateCreation = dateCreation;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 
@@ -54,16 +60,20 @@ public class Reservation {
         this.type = type;
     }
 
-    public LocalDate getDateCreation() {
+    public String getDateCreation() {
         return dateCreation;
     }
 
-    public LocalDate getDateExpiration() {
+    public String ateExpiration() {
         return dateExpiration;
     }
 
-    public void setDateExpiration(LocalDate date) {
+    public void setDateExpiration(String date) {
         this.dateExpiration = date;
+    }
+
+    public void setDateCreation(String date) {
+        this.dateCreation = date;
     }
 
     public Flight getFlight() {
