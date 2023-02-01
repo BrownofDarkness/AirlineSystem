@@ -1,41 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" xmlns:th="http://wwww.thymeleaf.org">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Reservation</title>
-    <link rel="stylesheet" th:href="@{static/css/reservation.css}">
+    <link rel="stylesheet" href="../../static/css/loginform.css">
 </head>
 <body>
-    <div style="margin-top: 32px;">
-        <p>Flight Reservation</p>        
+   <div class="text">
+    <p>Flight Reservation</p>
+   </div>
+
+   <div class="modal-content">
+    <div id="formcontainer">
+      <form action="" id="form">
+        <label for="">Class</label>
+        <select>
+          <option>First </option>
+          <option>Business </option>
+          <option>Economy </option>
+      </select>
+      <label for="">Date</label>
+      <input type="date" name="date" />
+      <input type="submit" value="Reserve" />
+      </form>
     </div>
+   </div>
 
-    <div class="formContainer">
-        <div class="label">
-            <label for="passport">Passport Number</label>
-        </div>
-
-        <div>
-            <input type="text" id="passport" name="passport" />
-        </div>
-        <div class="label">
-            <label for="destination">Destination</label>
-        </div>
-
-        <div>
-            <input type="text" id="destination" name="destination" />
-        </div>
-
-        <div class="label">
-            <label for="time">Time</label>
-        </div>
-
-        <div>
-            <input type="text" id="time" name="destination" />
-        </div>
-    </div>
-
+  </style>
 </body>
 </html>

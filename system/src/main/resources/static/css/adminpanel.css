@@ -62,7 +62,6 @@ table, td, th {
 table {
     border-collapse: collapse;
     width: 100%;
-    border-radius: 4px 4px 4px 4px;
 }
 
 tr th {
@@ -196,4 +195,9 @@ input[type=text], select {
   #formcontainer {
     border-radius: 5px;
     padding: 20px;
+  }
+
+  h3 {
+    margin-top: 78px;
+    color: white;
   }

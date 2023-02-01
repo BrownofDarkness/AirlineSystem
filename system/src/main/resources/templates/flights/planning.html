@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://wwww.thymeleaf.org">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Reservation</title>
+    <link rel="stylesheet" th:href="@{static/css/adminpanel.css}">
+    <link rel="stylesheet" href="../../static/css/adminpanel.css">
+</head>
+<body>
+    <div style="margin-top: 32px;">
+        <p>Flight Planning</p>        
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Flight Id</th>
+                <th>Departure Destination</th>
+                <th>Departure Town</th>
+                <th>Arrival Destination</th>
+                <th>Arrival Town</th>
+                <th>Departure Time</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Cameroon</td>
+                <td>Yde</td>
+                <td>Nigeria</td>
+                <td>kobo</td>
+                <td>12:15</td>
+                <td>23-01-2023</td>
+                <td>200$</td>
+                <td><a id="second" href="reservation.html">Reserve</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>France</td>
+                <td>paris</td>
+                <td>USA</td>
+                <td>Toronto</td>
+                <td>18:45</td>
+                <td>23-01-2023</td>
+                <td>250$</td>
+                <td><a id="second" href="reservation.html">Reserve</a></td>
+
+            </tr>
+        </table>        
+    </div>
+
+</body>
+</html>

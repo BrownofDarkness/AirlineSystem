@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit profile</title>
     <link th:href="@{/static/css/loginform.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/loginform.css">
 
 </head>
 <body>
@@ -19,19 +20,19 @@
 
     <div class="modal-content">
         <div class="formcontainer" style="margin-top: 16px;">
-            <form action="#">
+            <form action="#" method="post">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" />
                 <label for="firstname">Firstname</label>
                 <input type="text" id="firstname" name="firstname" />
                 <label for="username">Lastname</label>
                 <input type="text" id="lastname" name="lastname" />
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" />
-                <label for="oldpassword">Old Password</label>
-                <input type="password" id="oldpassword" name="oldpassword" />
-                <label for="newpassword">New Password</label>
-                <input type="password" id="newpassword" name="newpassword" />
-                <label for="confirmpassword">Confirm Password</label>
-                <input type="password" id="confirmpassword" name="confirmpassword" />
+                <label for="number">Phone number</label>
+                <input type="number" id="number" name="number" />
+                <label for="password">Password</label>
+                <input type="password" id="password" />
                 <input type="submit" value="Edit"/>
             </form>
         </div>        
