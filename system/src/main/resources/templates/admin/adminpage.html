@@ -16,7 +16,11 @@
             <div style="float: right;">
                 <li><span id="myBtn" onclick="modal()">Create new flight</span></li>
                 <li><a href="#contact">Flight Statistics</a></li>
-                <li><a id="out" href="#home">Logout</a></li>
+                <li>
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" id="out" value="Logout" />
+                    </form>
+            	</li>
             </div>
           </ul>
     </div> 
@@ -26,21 +30,23 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div id="formcontainer">
-                <form action="" method="post">
+                <form action="" method="post" th:action="@{/saveflight}" th:object="${flight}">
                     <label for="hour">Hour</label>
-                    <input type="text" name="hour" id="hour">
+                    <input type="text" th:field="*{hour}" name="hour" id="hour">
                     <label for="depart">Departure Country</label>
-                    <input type="text" name="depart" id="depart">
+                    <input type="text" name="depart" th:field="*{departCountry}" id="depart">
                     <label for="dtown">Departure town</label>
-                    <input type="text" name="dtown" id="dtown">
+                    <input type="text" name="dtown" th:field="*{departTown}" id="dtown">
                     <label for="arrival">Arrival Country</label>
-                    <input type="text" name="arrival" id="arrival">
+                    <input type="text" name="arrival" th:field="*{arivalCountry}" id="arrival">
                     <label for="atown">Arrival town</label>
-                    <input type="text" name="atown" id="atown">
+                    <input type="text" name="atown" th:field="*{arivalTown}" id="atown">
                     <label for="price">Price</label>
-                    <input type="text" name="price" id="price">
+                    <input type="text" name="price" th:field="*{price}" id="price">
+                    <label for="status">Status:</label>
+                    <input type="text" name="status" th:field="*{status}" id="status"> 
                     <label for="seats">Total seats</label>
-                    <input type="text" name="seats" id="seats">
+                    <input type="number" name="seats" th:field="*{totalseats}" id="seats">
                     <input type="submit" value="Create" />
                 </form> 
             </div>
@@ -54,11 +60,10 @@
                 <th>Departure Destination</th>
                 <th>Arrival Destination</th>
                 <th>Departure Time</th>
-                <th>Date</th>
                 <th></th>
                 <th></th>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>1</td>
                 <td>Cameroon</td>
                 <td>Nigeria</td>
@@ -75,6 +80,16 @@
                 <td>23-01-2023</td>
                 <td><a id="first" href="#edeleteflight">Delete</a></td>
                 <td><a id="second" href="#update">Update</a></td>
+
+            </tr> -->
+            
+            <tr th:each="flight:${flights}">
+                <td th:text="${flight.getId}">2</td>
+                <td th:text="${flight.getDepartCountry}">France</td>
+                <td th:text="${flight.getArivalCountry}">USA</td>
+                <td th:text="${flight.getHour}">18:45</td>
+                <td><a id="first" th:href="@{/deleteflight/{id}(id=${flight.getId})}">Delete</a></td>
+                <td><a id="second" th:href="@{/updateflight_{id}(id=${flight.getId})}">Update</a></td>
 
             </tr>
         </table>        

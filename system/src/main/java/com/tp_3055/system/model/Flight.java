@@ -1,64 +1,64 @@
 package com.tp_3055.system.model;
-import java.time.LocalTime;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Flight {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "flight_id")
     private Long id;
 
-    private LocalTime hour;
-    private String departCountry,departTown, arivalCountry,arivalTown,status;
+    private String hour;
+    private String departCountry;
+    private String departTown;
+    private String arivalCountry;
+    private String arivalTown;
+    private String status;
     private Double price;
     private int totalseats;
 
-    @OneToMany(mappedBy = "flight")
-    private Set<Reservation> reservations = new HashSet<>();
 
-
-    public Flight(){
-        
-    }
-
-    public Flight(LocalTime hour, String departCountry, String departTown, String arivalCountry, String arivalTown, Double price, int totalseats) {
+    public Flight(String hour, String departCountry, String departTown, String arivalCountry, String arivalTown, Double price, int totalseats,String status) {
         this.hour = hour;
         this.departCountry = departCountry;
         this.arivalCountry = arivalCountry;
-        this.departCountry = departTown;
-        this.arivalCountry = arivalTown;
+        this.departTown = departTown;
+        this.arivalTown = arivalTown;
         this.price = price;
         this.totalseats = totalseats;
-        this.status = "in_progress";
+        if (status!=null) {
+            this.status = status;
+        } else {
+            this.status = "in progress";
+        }
     }
 
-    public LocalTime getHour() {
+    public Flight() {
+    }
+
+    public String getHour() {
         return hour;
     }
 
-    public void setHour(LocalTime hour) {
+    public void setHour(String hour) {
         this.hour = hour;
     }
 
     public Long getId() {
         return id;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getDepartCountry() {
         return departCountry;
     }
 
-    public void setDepart(String depart) {
+    public void setDepartCountry(String depart) {
         this.departCountry = depart;
     }
 
@@ -98,16 +98,23 @@ public class Flight {
         return totalseats;
     }
 
+    public void setTotalseats(int seat) {
+        this.totalseats = seat;
+    }
+
+    public void setStatus(String status) {
+        if (status!=null) {
+            this.status = status;
+        } else {
+            this.status = "in progress";
+        }
+       
+    }
+
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Set<Reservation> getReservations() {
-        return reservations;
-    }
+       
     
 }

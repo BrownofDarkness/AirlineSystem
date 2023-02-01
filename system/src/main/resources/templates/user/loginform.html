@@ -16,11 +16,21 @@
         <p>LOGIN</p>
     </div>
 
+    <div th:if="${#request.getParameter('error') == 'true'}" style="color:red;margin:10px 0px;">
+        Login Failed!!!<br />
+        Reason :
+        <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+        th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+            Static summary
+        </span>
+        
+    </div>
+
     <div class="modal-content">
         <div id="formcontainer">
-            <form id="form" action="">
+            <form id="form" action="" th:action="@{/singin}" method="post">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="firstname" />
+                <input type="text" id="username" name="username" />
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
                 <input id="user" type="submit" value="Login">

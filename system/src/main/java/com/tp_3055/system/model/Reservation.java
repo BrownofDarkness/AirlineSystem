@@ -30,7 +30,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private Client client;
+    private User user;
 
     public Reservation() {
         
@@ -74,12 +74,12 @@ public class Reservation {
         this.flight = flight;
     }
 
-    public Client getClient() {
-        return client;
+    public User getClient() {
+        return user;
     }
 
-    public void setClient(Client client) {
-        this.client= client;
+    public void setClient(User client) {
+        this.user= client;
     }
 }
 
