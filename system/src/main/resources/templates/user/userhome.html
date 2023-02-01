@@ -4,38 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" th:href="@{/static/css/userhome.css}">
+    <title>User home</title>
+    <link rel="stylesheet" th:href="@{static/css/adminpanel.css}">
+    <script th:src="@{static/js/modal.js}"></script>
+    <link rel="stylesheet" href="../../static/css/adminpanel.css">
+
 </head>
 <body>
-    <div class="text">
-        <p>Welcome Terb what</p>
-        <p style="font-size: 32px; margin-bottom: 40px;">What would you like to do ?</p>        
-    </div>
-
-    <div class="center">
-        <div class="row">
-            <div class="col-50">
-                <input type="submit" value="Make a reservation" />
-                <input type="submit" value="Cancel a flight" />
-            </div>            
-        </div>
-
-        <div class="row">
-            <div class="col-50">
-                <input type="submit" value="Re-schedule a flight" />
-                <input type="submit" value="View flight planning" />              
+    <div>
+        <ul style="padding: 5px;">
+            <li class="a"><span>Welcome User ?</span></li>
+            <div style="float: right;">
+                <li><span id="myBtn" onclick="modal()">Create new flight</span></li>
+                <li><a id="out" href="#home">Logout</a></li>
             </div>
-        </div>
+          </ul>
+    </div> 
 
-        <div class="row">
-            <div class="col-50" style=" margin-top: 100px;">
-                <input type="submit" value="Update profile" />
-                <input type="submit" value="Logout" />              
-            </div>                
-        </div>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Flight Id</th>
+                <th>Departure Time</th>
+                <th>Departure Country</th>
+                <th>Departure Town</th>
+                <th>Arrival Country</th>
+                <th>Arrival Town</th>
+                <th>Price</th>
+                <th>Total seats</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>12:15</td>
+                <td>Cameroon</td>
+                <td>Yaounde</td>
+                <td>USA</td>
+                <td>New York</td>
+                <td>200$</td>
+                <td>250</td>
+                <td><a id="second" href="#update">Reservate</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>18:45</td>
+                <td>France</td>
+                <td>Paris</td>
+                <td>USA</td>
+                <td>Toronto</td>
+                <td>150$</td>
+                <td>200</td>
+                <td><a id="second" href="#update">Reservate</a></td>
 
+            </tr>
+        </table>        
     </div>
-
 </body>
 </html>
