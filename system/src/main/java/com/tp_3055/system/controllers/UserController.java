@@ -79,7 +79,6 @@ public class UserController {
 
     @PostMapping("/saveUser")
     public String save(@ModelAttribute("user") User user){
-        System.out.println("user.getIsAdmin(");
         System.out.println();
         System.out.println(user.getFirstName());
         System.out.println();
