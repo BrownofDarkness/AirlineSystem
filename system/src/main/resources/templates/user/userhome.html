@@ -1,61 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User home</title>
-    <link rel="stylesheet" th:href="@{static/css/adminpanel.css}">
-    <script th:src="@{static/js/modal.js}"></script>
     <link rel="stylesheet" href="../../static/css/adminpanel.css">
-
 </head>
 <body>
     <div>
         <ul style="padding: 5px;">
-            <li class="a"><span>Welcome User ?</span></li>
+            <li class="a"><span>Welcome User ?  </span></li>
             <div style="float: right;">
-                <li><span id="myBtn" onclick="modal()">Create new flight</span></li>
+                <li><a href="editprofile.html">Edit profile</a></li>
                 <li><a id="out" href="#home">Logout</a></li>
             </div>
           </ul>
     </div> 
 
+    <h3>Your Reservations</h3>
     <div class="table-container">
         <table>
             <tr>
-                <th>Flight Id</th>
-                <th>Departure Time</th>
-                <th>Departure Country</th>
-                <th>Departure Town</th>
-                <th>Arrival Country</th>
-                <th>Arrival Town</th>
-                <th>Price</th>
-                <th>Total seats</th>
+                <th>Reservation Id</th>
+                <th>Class</th>
+                <th>Date creation</th>
+                <th>Departure Destination</th>
+                <th>Arrival Destination</th>
+                <th></th>
                 <th></th>
             </tr>
             <tr>
                 <td>1</td>
-                <td>12:15</td>
+                <td>Economy</td>
+                <td>23-01-2023</td>
                 <td>Cameroon</td>
-                <td>Yaounde</td>
-                <td>USA</td>
-                <td>New York</td>
-                <td>200$</td>
-                <td>250</td>
-                <td><a id="second" href="#update">Reservate</a></td>
+                <td>Nigeria</td>
+                <td><a id="second" href="#Re">Re-schedule</a></td>
+                <td><a id="first" href="#cancel">Cancel</a></td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>18:45</td>
-                <td>France</td>
-                <td>Paris</td>
-                <td>USA</td>
-                <td>Toronto</td>
-                <td>150$</td>
-                <td>200</td>
-                <td><a id="second" href="#update">Reservate</a></td>
-
+                <td>Bussiness</td>
+                <td>23-01-2023</td>
+                <td>Nigeria</td>
+                <td>kobo</td>
+                <td><a id="second" href="#Re">Re-schedule  </a></td>
+                <td><a id="first" href="#cancel">Cancel</a></td>
             </tr>
         </table>        
     </div>
