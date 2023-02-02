@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link th:href="@{/static/css/loginform.css}" rel="stylesheet" type="text/css"/>
-
+    <link th:href="@{static/css/loginform.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <a th:href="@{/}"><button style="position: fixed  ; left: 0;top: 0;">Home</button></a>
@@ -19,14 +18,17 @@
         <p>LOGIN</p>
     </div>
 
-    <div th:if="${#request.getParameter('error') == 'true'}" style="color:red;margin:10px 0px;">
-        Login Failed!!!<br />
-        Reason :
-        <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
-        th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
-            Static summary
-        </span>
-        
+    <div id="myModal" class="modal" th:if="${#request.getParameter('error') == 'true'}">
+        <div class="modal-content2">
+            <span id="close" class="close">&times;</span>
+            <div>
+                <p>Login Failed!!! </p>
+                <p>Reason :</p>                
+            </div>
+            <h4 th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+            th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                Static summary</h4>            
+        </div>
     </div>
 
     <div class="modal-content">
@@ -51,6 +53,18 @@
             x.type = "password";
           }
         }
+        var modal = document.getElementById("myModal");
+        var span = document.getElementById("close");
+        span.onclick = function() {
+        modal.style.display = "none";
+        console.log("qfjjefqsnlfvlkfn")
+        }
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            console.log("ghjkl")
+        }
+}
     </script>
 </body>
 </html>

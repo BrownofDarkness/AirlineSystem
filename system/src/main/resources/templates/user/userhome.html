@@ -35,23 +35,6 @@
                 <th></th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Economy</td>
-                <td>23-01-2023</td>
-                <td>Cameroon</td>
-                <td>Nigeria</td>
-                <td><a id="second" href="#Re">Re-schedule</a></td>
-                <td><a id="first" href="#cancel">Cancel</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Bussiness</td>
-                <td>23-01-2023</td>
-                <td>Nigeria</td>
-                <td>kobo</td>
-                <td><a id="second" href="#Re">Re-schedule  </a></td>
-                <td><a id="first" href="#cancel">Cancel</a></td>
-            </tr>
 
             <tr th:each="reserv:${reservs}">
                 <td th:text="${reserv.getId}">2</td>
