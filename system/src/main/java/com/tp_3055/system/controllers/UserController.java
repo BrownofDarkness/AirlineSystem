@@ -5,6 +5,8 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -50,7 +52,15 @@ public class UserController {
 
 
     @GetMapping("/dashboard")
-    public String dashboardAdmin(Principal principal,Model model){
+    public String dashboardAdmin(Principal principal,Model model,HttpServletRequest request){
+        if (request.isUserInRole("ROLE_ADMIN")) {
+            System.out.println();
+            System.out.println("ADmin");
+            System.out.println();
+        }
+        else{
+            return "redirect:/";
+        }
         Flight flight = new Flight();
         model.addAttribute("flight", flight);
 

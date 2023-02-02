@@ -1,8 +1,11 @@
 package com.tp_3055.system.model;
 
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class CustomUserDetails implements UserDetails {
@@ -14,7 +17,14 @@ public class CustomUserDetails implements UserDetails {
  
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        final List<SimpleGrantedAuthority> authorities = new LinkedList<>();
+        if (isEnabled()) {
+            if (this.getUser().getIsAdmin()) {
+                authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            }
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        }
+        return authorities;
     }
  
     @Override
