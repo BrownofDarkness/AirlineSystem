@@ -25,27 +25,7 @@
                 <th>Price</th>
                 <th></th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Cameroon</td>
-                <td>Yde</td>
-                <td>Nigeria</td>
-                <td>kobo</td>
-                <td>12:15</td>
-                <td>200$</td>
-                <td><a id="second" href="reservation.html">Reserve</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>France</td>
-                <td>paris</td>
-                <td>USA</td>
-                <td>Toronto</td>
-                <td>18:45</td>
-                <td>250$</td>
-                <td><a id="second" href="reservation.html">Reserve</a></td>
-
-            </tr>
+            
             <tr th:each="flight:${flights}">
                 <td th:text="${flight.getId}">2</td>
                 <td th:text="${flight.getDepartCountry}">France</td>

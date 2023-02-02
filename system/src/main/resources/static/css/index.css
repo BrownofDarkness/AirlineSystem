@@ -79,3 +79,17 @@ body {
     color: white;
     font-size: 16px;
 }
+
+div.fixed {
+    transform: rotate(-10deg);
+    margin-left: -160px;
+    position: fixed;
+    animation-name: example;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+@keyframes example {
+    0%   {left:0px; bottom:0px;}
+    100% {left:1760px; bottom:200px;}
+}
