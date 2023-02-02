@@ -201,3 +201,32 @@ input[type=text], select {
     margin-top: 78px;
     color: white;
   }
+
+  #in {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    padding: 0px;
+}
+
+#inn {
+  display: block  ;
+  padding: 9px 16px;
+}
+
+#inn:hover {
+  background-color: red;
+}
+
+#in2 {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  padding: 9px 16px;
+}
+
+#r:hover {
+  background-color: red;
+}

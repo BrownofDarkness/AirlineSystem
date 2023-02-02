@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User home</title>
-    <link rel="stylesheet" href="../../static/css/adminpanel.css">
+    <link th:href="@{/static/css/adminpanel.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div>
@@ -13,7 +13,11 @@
             <li class="a"><span>Welcome <b th:text="${user.getUsername}"></b> ?</span></li>
             <div style="float: right;">
                 <li><a th:href="@{/editProfile_{id}(id=${user.getId})}">Edit profile</a></li>
-                <li><a id="out" href="#home">Logout</a></li>
+                <li >
+                    <form th:action="@{/logout}" method="post">
+                        <a id="inn" href="#"><input id="in" type="submit" value="Logout" /></a> 
+                    </form>
+                </li>
             </div>
           </ul>
     </div> 
