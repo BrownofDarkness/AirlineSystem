@@ -10,6 +10,8 @@
 
 </head>
 <body>
+    <button style="position: fixed  ; left: 0;top: 0;"><a href="">Back</a></button>
+
     <div class="text" style="margin-top: 20px;">
         <p>Welcome to Airline Reservation System</p>
     </div>
@@ -34,10 +36,20 @@
                 <input type="number" th:field="*{phoneNumber}" id="phone" name="phone" required/>
                 <label for="password">Password</label>
                 <input type="text" th:field="*{password}" id="password" name="password" required/>
-                <input type="submit" value="Sign Up">
+                <input type="checkbox" onclick="myFunction()">  Show Password 
+                <input type="submit" value="Edit">
             </form>
         </div>        
     </div>
-
+    <script>
+        function myFunction() {
+          var x = document.getElementById("password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+    </script>
 </body>
 </html>

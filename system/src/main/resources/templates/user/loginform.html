@@ -9,6 +9,8 @@
 
 </head>
 <body>
+    <button style="position: fixed  ; left: 0;top: 0;"><a th:href="@{/}">Home</a></button>
+
     <div class="text">
         <p>Welcome to Airline Reservation System</p>
     </div>
@@ -34,17 +36,21 @@
                 <input type="text" id="username" name="username" />
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
+                <input type="checkbox" onclick="myFunction()">  Show Password 
+                <p style="padding: 4px;">No account ? <a id="b" th:href="@{/register}">Signup</a></p>
                 <input id="user" type="submit" value="Login">
             </form>
         </div>
     </div>
-
-
-      <script>
-        function myfunc() {
-            const x = document.getElementById('form')
-            x.action = "userhome.html";
+    <script>
+        function myFunction() {
+          var x = document.getElementById("password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
         }
-      </script>
+    </script>
 </body>
 </html>

@@ -9,11 +9,13 @@
 
 </head>
 <body>
-    <div class="text" style="margin-top: 20px;">
+    <button style="position: fixed; left: 0;top: 0;"><a th:href="@{/}">Home</a></button>
+
+    <div class="text" style="margin-top: 0px;">
         <p>Welcome to Airline Reservation System</p>
     </div>
 
-    <div class="text" style="margin-top: 30px;">
+    <div class="text" style="margin-top: 10px;">
         <p>SIGN UP</p>
     </div>
     <div class="modal-content">
@@ -31,10 +33,22 @@
                 <input type="number" th:field="*{phoneNumber}" id="phone" name="phone" required/>
                 <label for="password">Password</label>
                 <input type="password" th:field="*{password}" id="password" name="password" required/>
+                <input type="checkbox" onclick="myFunction()">  Show Password 
+                <p style="padding: 4px;">Have an account ? <a id="b" th:href="@{/singin}">Login</a></p>
                 <input type="submit" value="Sign Up">
             </form>
         </div>        
     </div> 
 
+    <script>
+        function myFunction() {
+          var x = document.getElementById("password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+    </script>
 </body>
 </html>
