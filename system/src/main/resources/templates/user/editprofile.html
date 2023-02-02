@@ -10,8 +10,7 @@
 
 </head>
 <body>
-    <button style="position: fixed  ; left: 0;top: 0;"><a href="">Back</a></button>
-
+    <a th:href="@{/Profile_user{id} (id=${#request.userPrincipal.principal.getUser.getId})}"><button style="position: fixed  ; left: 0;top: 0;">Back</button></a>
     <div class="text" style="margin-top: 20px;">
         <p>Welcome to Airline Reservation System</p>
     </div>

@@ -16,6 +16,7 @@
             <div style="float: right;">
                 <li><span id="myBtn" onclick="modal()">Create new flight</span></li>
                 <li><a href="#contact">Flight Statistics</a></li>
+                <li><a href="#client">View client list</a></li>
                 <li id="r">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" id="in2" value="Logout" />
@@ -53,6 +54,7 @@
         </div>
     </div> 
 
+    <h3>Current flights</h3>
     <div class="table-container">
         <table>
             <tr>
@@ -63,26 +65,6 @@
                 <th></th>
                 <th></th>
             </tr>
-            <!-- <tr>
-                <td>1</td>
-                <td>Cameroon</td>
-                <td>Nigeria</td>
-                <td>12:15</td>
-                <td>23-01-2023</td>
-                <td><a id="first" href="#deleteflight">Delete</a></td>
-                <td><a id="second" href="#update">Update</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>France</td>
-                <td>USA</td>
-                <td>18:45</td>
-                <td>23-01-2023</td>
-                <td><a id="first" href="#edeleteflight">Delete</a></td>
-                <td><a id="second" href="#update">Update</a></td>
-
-            </tr> -->
-            
             <tr th:each="flight:${flights}">
                 <td th:text="${flight.getId}">2</td>
                 <td th:text="${flight.getDepartCountry}">France</td>
@@ -93,6 +75,50 @@
 
             </tr>
         </table>        
+    </div>
+    <h3>Reservations in progress</h3>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Flight Id</th>
+                <th>Departure Destination</th>
+                <th>Arrival Destination</th>
+                <th>Departure Time</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <!-- <tr th:each="flight:${flights}">
+                <td th:text="${flight.getId}">2</td>
+                <td th:text="${flight.getDepartCountry}">France</td>
+                <td th:text="${flight.getArivalCountry}">USA</td>
+                <td th:text="${flight.getHour}">18:45</td>
+                <td><a id="first" th:href="@{/deleteflight/{id}(id=${flight.getId})}">Delete</a></td>
+                <td><a id="second" th:href="@{/updateflight_{id}(id=${flight.getId})}">Update</a></td>
+
+            </tr> -->
+        </table>        
+    </div>
+
+    <h3>Client list</h3>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Client Id</th>
+                <th>User Name</th>
+                <th>First Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+                        <!-- <tr th:each="flight:${flights}">
+                <td th:text="${flight.getId}">2</td>
+                <td th:text="${flight.getDepartCountry}">France</td>
+                <td th:text="${flight.getArivalCountry}">USA</td>
+                <td th:text="${flight.getHour}">18:45</td>
+                <td><a id="first" th:href="@{/deleteflight/{id}(id=${flight.getId})}">Delete</a></td>
+                <td><a id="second" th:href="@{/updateflight_{id}(id=${flight.getId})}">Update</a></td>
+
+            </tr> -->
+        </table>
     </div>
 </body>
 </html>

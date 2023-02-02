@@ -198,7 +198,8 @@ input[type=text], select {
   }
 
   h3 {
-    margin-top: 78px;
+    margin-top: 40px;
+    margin-left: 20px;
     color: white;
   }
 
@@ -229,4 +230,25 @@ input[type=text], select {
 
 #r:hover {
   background-color: red;
+}
+
+button {
+  margin: 20px;
+  border-radius: 4px;
+  background: none;
+  color: white;
+  border: none;
+  padding: 12px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  background-color: orange;
+}
+button:hover {
+background-color: rgb(161, 117, 35);
+}
+
+a {
+text-decoration: none;
+color: white;
 }
