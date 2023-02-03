@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tp_3055.system.model.Flight;
 import com.tp_3055.system.repos.FlightRepository;
@@ -40,9 +41,31 @@ public class FlightController {
     }
 
     @GetMapping("/flightplanning")
-    public String flightPlanning(Model model){
+    public String flightPlanning(@RequestParam(required = false) String tag, @RequestParam(required = false) String query, Model model){
         List<Flight> flights = flightRepository.findAll();
+       
         
+        if (tag == "arrivalCountry"){ 
+            flights = flightRepository.searchByArivalCountryLikeIgnoreCase(query); 
+        }
+       
+        if (tag == "departureCountry") {
+            flights = flightRepository.searchByDepartCountryLikeIgnoreCase(query);
+        }
+        if (tag == "arrivalTown") {
+
+            flights = flightRepository.searchByArivalTownLikeIgnoreCase(query);
+        }
+
+        if (tag == "departureTown") {
+            flights = flightRepository.searchByDepartTownLikeIgnoreCase(query);
+        }
+        if (tag == "hour") {
+            flights = flightRepository.findByHourContaining(query);
+        }
+
+
+
         model.addAttribute("flights", flights);
         return "flights/planning";
     }
@@ -103,4 +126,8 @@ public class FlightController {
         return "redirect:/dashboard";
  
     }
+
+
+
+
 }
