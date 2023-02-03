@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tp_3055.system.model.Flight;
+import com.tp_3055.system.model.Reservation;
 import com.tp_3055.system.repos.FlightRepository;
-// import com.tp_3055.system.repos.ReservationRepository;
+import com.tp_3055.system.repos.ReservationRepository;
 import com.tp_3055.system.service.FlightServicesImpl;
 
 @Controller
@@ -26,8 +27,8 @@ public class FlightController {
     @Autowired
     private FlightRepository flightRepository;
 
-    // @Autowired
-    // private ReservationRepository reservationRepository;
+    @Autowired
+    private ReservationRepository reservationRepo;
 
 
     @GetMapping("/createflight")
@@ -120,8 +121,23 @@ public class FlightController {
         return "flights/update";
     }
 
+    public Flight getflight(Long id){
+        Optional<Flight> optional = flightRepository.findById(id);
+        Flight flight = null;
+        if (optional.isPresent())
+            flight = optional.get();
+        else
+            throw new RuntimeException("client not found for id : " + id);
+            
+        return flight;
+    }
+
     @GetMapping("/deleteflight/{id}")
     public String deleteThroughId(@PathVariable(value = "id") Long id) {
+        List<Reservation> reservations = reservationRepo.getallFlightReservations(this.getflight(id));
+        if (reservations.isEmpty()==true){
+            reservationRepo.deleteAll(reservations);
+        }
         flightRepository.deleteById(id);
         return "redirect:/dashboard";
  

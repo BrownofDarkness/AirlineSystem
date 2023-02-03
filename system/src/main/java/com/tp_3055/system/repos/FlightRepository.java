@@ -15,13 +15,13 @@ public interface FlightRepository extends JpaRepository <Flight , Long>{
     @Query("SELECT f FROM Flight f WHERE f.arivalCountry = ?1 order by f.price")
     List<Flight> searchByArivalCountryLikeIgnoreCase( String arrivalCountry);
 
-    @Query("SELECT f FROM Flight f WHERE f.departCountry LIKE %:departureCountry% order by f.price")
+    @Query("SELECT f FROM Flight f WHERE f.departCountry = ?1 order by f.price")
     List<Flight> searchByDepartCountryLikeIgnoreCase( String departureCountry);
 
-    @Query("SELECT f FROM Flight f WHERE f.departTown LIKE %:departureTown% order by f.price")
+    @Query("SELECT f FROM Flight f WHERE f.departTown = ?1 order by f.price")
     List<Flight> searchByDepartTownLikeIgnoreCase( String departureTown);
 
-    @Query("SELECT f FROM Flight f WHERE f.arivalTown LIKE %:departureTown% order by f.price")
+    @Query("SELECT f FROM Flight f WHERE f.arivalTown = ?1 order by f.price")
     List<Flight> searchByArivalTownLikeIgnoreCase( String arrivalTown);
 
 
