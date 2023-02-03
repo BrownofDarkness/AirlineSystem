@@ -56,7 +56,8 @@
 
     <h3>Current flights</h3>
     <div class="table-container">
-        <table>
+        <span th:if="${flights == null}" style="background-color: purple; color:white">no flights avalaibles</span>
+        <table th:if="${flights != null}">
             <tr>
                 <th>Flight Id</th>
                 <th>Departure Destination</th>
@@ -72,36 +73,40 @@
                 <td th:text="${flight.getHour}">18:45</td>
                 <td><a id="first" th:href="@{/deleteflight/{id}(id=${flight.getId})}">Delete</a></td>
                 <td><a id="second" th:href="@{/updateflight_{id}(id=${flight.getId})}">Update</a></td>
-
             </tr>
         </table>        
     </div>
     <h3>Reservations in progress</h3>
     <div class="table-container">
-        <table>
+        <span th:if="${reservations == null}" style="background-color: purple; color:white">no reservations avalaibles</span>
+        <table th:if="${reservations != null}">
             <tr>
-                <th>Flight Id</th>
+                <th>Reservation Id</th>
+                <th>Client</th>
+                <th>Class</th>
+                <th>Date creation</th>
                 <th>Departure Destination</th>
                 <th>Arrival Destination</th>
-                <th>Departure Time</th>
-                <th></th>
-                <th></th>
+                
             </tr>
-            <!-- <tr th:each="flight:${flights}">
-                <td th:text="${flight.getId}">2</td>
-                <td th:text="${flight.getDepartCountry}">France</td>
-                <td th:text="${flight.getArivalCountry}">USA</td>
-                <td th:text="${flight.getHour}">18:45</td>
-                <td><a id="first" th:href="@{/deleteflight/{id}(id=${flight.getId})}">Delete</a></td>
-                <td><a id="second" th:href="@{/updateflight_{id}(id=${flight.getId})}">Update</a></td>
+            <tr>
 
-            </tr> -->
+            <tr th:each="reserv:${reservations}">
+                <td th:text="${reserv.getId}">2</td>
+                <td th:text="${reserv.getClient.getUsername}">France</td>
+                <td th:text="${reserv.getType}">2</td>
+                <td th:text="${reserv.getDateCreation}">2</td>
+                <td th:text="${reserv.getFlight.getDepartCountry}">France</td>
+                <td th:text="${reserv.getFlight.getArivalCountry}">USA</td>
+
+            </tr>
         </table>        
     </div>
 
     <h3>Client list</h3>
     <div class="table-container">
-        <table>
+        <span th:if="${clients == null}" style="background-color: purple; color:white">no clients avalaibles</span>
+        <table th:if="${clients != null}">
             <tr>
                 <th>Client Id</th>
                 <th>User Name</th>
@@ -109,15 +114,14 @@
                 <th>Lastname</th>
                 <th>Email</th>
             </tr>
-                        <!-- <tr th:each="flight:${flights}">
-                <td th:text="${flight.getId}">2</td>
-                <td th:text="${flight.getDepartCountry}">France</td>
-                <td th:text="${flight.getArivalCountry}">USA</td>
-                <td th:text="${flight.getHour}">18:45</td>
-                <td><a id="first" th:href="@{/deleteflight/{id}(id=${flight.getId})}">Delete</a></td>
-                <td><a id="second" th:href="@{/updateflight_{id}(id=${flight.getId})}">Update</a></td>
+                <tr th:each="client:${clients}">
+                <td th:text="${client.getId}"></td>
+                <td th:text="${client.getUsername}"></td>
+                <td th:text="${client.getFirstName}"></td>
+                <td th:text="${client.getLastName}"></td>
+                <td th:text="${client.getEmail}"></td>
 
-            </tr> -->
+            </tr>
         </table>
     </div>
 </body>

@@ -1,7 +1,5 @@
 package com.tp_3055.system.controllers;
 
-
-import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,29 +49,14 @@ public class UserController {
     }
 
 
-    @GetMapping("/dashboard")
-    public String dashboardAdmin(Principal principal,Model model,HttpServletRequest request){
-        if (request.isUserInRole("ROLE_ADMIN")) {
-            System.out.println();
-            System.out.println("ADmin");
-            System.out.println();
-        }
-        else{
-            return "redirect:/";
-        }
-        Flight flight = new Flight();
-        model.addAttribute("flight", flight);
-
-        List<Flight> flights = flightRepository.findAll();
-        model.addAttribute("flights", flights);
-        return "admin/adminpage";
-    }
-
     @GetMapping("/Profile_user{id}")
     public String getProfile(@PathVariable(value = "id") Long id,Model model){
         User user = this.getuser(id);
         model.addAttribute("user", user);
         List<Reservation> reservations = reservationRespo.getallYourReservations(user);
+        if(reservations.isEmpty()){
+            reservations = null;
+        }
         model.addAttribute("reservs", reservations);
         return "user/userhome";
     }

@@ -24,7 +24,8 @@
 
     <h3>Your Reservations</h3>
     <div class="table-container">
-        <table>
+        <span th:if="${reservs == null}" style="background-color: purple; color:white">no reservations avalaibles</span>
+        <table th:if="${reservs != null}">
             <tr>
                 <th>Reservation Id</th>
                 <th>Class</th>
