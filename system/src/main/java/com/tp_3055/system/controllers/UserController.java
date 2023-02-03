@@ -3,8 +3,6 @@ package com.tp_3055.system.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -48,6 +46,18 @@ public class UserController {
         return "user/singupform";
     }
 
+    @PostMapping("/saveUser")
+    public String save(@ModelAttribute("user") User user){
+        System.out.println();
+        System.out.println(user.getFirstName());
+        System.out.println();
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        // user.setAdmin();
+        userRepositry.save(user);
+        return "redirect:/singin";
+    }
 
     @GetMapping("/Profile_user{id}")
     public String getProfile(@PathVariable(value = "id") Long id,Model model){
@@ -61,68 +71,6 @@ public class UserController {
         return "user/userhome";
     }
 
-    @GetMapping("/reservation_flight{id}")
-    public String getReservationView(Model model,@PathVariable(value = "id") Long id){
-        Reservation reservation = new Reservation();
-        model.addAttribute("reservation", reservation);
-        Flight flight = this.getflight(id);
-        model.addAttribute("flight", flight);
-        return "flights/reservation";
-    }
-
-    @PostMapping("/saveReservation_user{user}_flight{flight}")
-    public String saveReservation(@ModelAttribute("reservation") Reservation reservation,@PathVariable(value = "user") Long user,@PathVariable(value = "flight") Long flight){
-        System.out.println();
-        System.out.println(reservation.getDateCreation());
-        System.out.println();
-        reservationRespo.save(reservation);
-        reservation.setClient(this.getuser(user));
-        reservation.setFlight(this.getflight(flight));
-        reservationRespo.save(reservation);
-
-        return "redirect:/";
-    }
-
-    @PostMapping("/updateReservation")
-    public String saveReservation(@ModelAttribute("reserv") Reservation reservation){
-        System.out.println();
-        System.out.println(reservation.getDateCreation());
-        System.out.println(reservation.getType());
-        System.out.println();
-        reservation.setId(reservation.getId());
-        reservation.setType(reservation.getType());
-        reservation.setDateCreation(reservation.getDateCreation());
-        Reservation reserv = this.getreserv(reservation.getId());
-        reservation.setClient(reserv.getClient());
-        reservation.setFlight(reserv.getFlight());
-        reservationRespo.save(reservation);
-
-        return "redirect:/";
-    }
-
-    @GetMapping("/updateResview_{id}")
-    public String saveReservation(@PathVariable(value = "id") Long id, Model model){
-        Reservation reservation = this.getreserv(id);
-        System.out.println();
-        System.out.println(reservation.getDateCreation());
-        System.out.println();
-        model.addAttribute("reserv", reservation);
-
-        return "flights/updaterev";
-    }
-
-    @PostMapping("/saveUser")
-    public String save(@ModelAttribute("user") User user){
-        System.out.println();
-        System.out.println(user.getFirstName());
-        System.out.println();
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-        // user.setAdmin();
-        userRepositry.save(user);
-        return "redirect:/singin";
-    }
 
     @PostMapping("/updateUser")
     public String updateflight(@ModelAttribute("user") User user){
@@ -177,16 +125,6 @@ public class UserController {
         return flight;
     }
 
-    public Reservation getreserv(Long id){
-        Optional<Reservation> optional = reservationRespo.findById(id);
-        Reservation reservation = null;
-        if (optional.isPresent())
-            reservation = optional.get();
-        else
-            throw new RuntimeException("client not found for id : " + id);
-            
-        return reservation;
-    }
 
     @GetMapping("/deleteclient/{id}")
     public String deleteThroughId(@PathVariable(value = "id") Long id) {

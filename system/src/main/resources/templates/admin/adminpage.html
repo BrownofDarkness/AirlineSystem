@@ -17,6 +17,7 @@
                 <li><span id="myBtn" onclick="modal()">Create new flight</span></li>
                 <li><a href="#contact">Flight Statistics</a></li>
                 <li><a href="#client">View client list</a></li>
+                <li><a th:href="@{/editAdmin_{id}(id=${user.getId})}">Edit profile</a></li>
                 <li id="r">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" id="in2" value="Logout" />
@@ -84,7 +85,7 @@
                 <th>Reservation Id</th>
                 <th>Client</th>
                 <th>Class</th>
-                <th>Date creation</th>
+                <th>Travel date</th>
                 <th>Departure Destination</th>
                 <th>Arrival Destination</th>
                 

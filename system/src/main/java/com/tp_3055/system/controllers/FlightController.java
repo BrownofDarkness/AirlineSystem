@@ -86,7 +86,7 @@ public class FlightController {
         System.out.println(flight.getDepartTown());
         System.out.println();
         flightRepository.save(flight);
-        return "redirect:/dashboard";
+        return "redirect:/";
     }
 
     @PostMapping("/updateflight")
