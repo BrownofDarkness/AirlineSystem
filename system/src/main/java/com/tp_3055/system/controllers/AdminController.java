@@ -2,7 +2,6 @@ package com.tp_3055.system.controllers;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.tp_3055.system.model.Flight;
 import com.tp_3055.system.model.Reservation;
