@@ -14,7 +14,8 @@
     </div>
 
     <div class="table-container">
-        <table>
+        <span th:if="${flights == null}" style="background-color: purple; color:white">no flights avalaibles</span>
+        <table th:if="${flights != null}">
             <tr>
                 <th>Flight Id</th>
                 <th>Departure Destination</th>

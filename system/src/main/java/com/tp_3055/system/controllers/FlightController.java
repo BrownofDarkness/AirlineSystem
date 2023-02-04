@@ -3,6 +3,7 @@ package com.tp_3055.system.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import org.aspectj.apache.bcel.generic.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,25 +45,53 @@ public class FlightController {
     @GetMapping("/flightplanning")
     public String flightPlanning(@RequestParam(required = false) String tag, @RequestParam(required = false) String query, Model model){
         List<Flight> flights = flightRepository.findAll();
+        if(flights.isEmpty()){
+            flights = null;
+        }
        
-        
+        System.out.println();
+        System.out.println(tag);
+        System.out.println();
+        System.out.println(query);
+        System.out.println();
+
+        String Tag = "f."+tag;
+        List<Flight> flight = flightRepository.searchByTag(Tag,query);
+        System.out.println();
+        System.out.println(flight);
+        System.out.println();
         if (tag == "arrivalCountry"){ 
             flights = flightRepository.searchByArivalCountryLikeIgnoreCase(query); 
+            if(flights.isEmpty()){
+                flights = null;
+            }
         }
        
         if (tag == "departureCountry") {
             flights = flightRepository.searchByDepartCountryLikeIgnoreCase(query);
+            if(flights.isEmpty()){
+                flights = null;
+            }
         }
         if (tag == "arrivalTown") {
 
             flights = flightRepository.searchByArivalTownLikeIgnoreCase(query);
+            if(flights.isEmpty()){
+                flights = null;
+            }
         }
 
         if (tag == "departureTown") {
             flights = flightRepository.searchByDepartTownLikeIgnoreCase(query);
+            if(flights.isEmpty()){
+                flights = null;
+            }
         }
         if (tag == "hour") {
             flights = flightRepository.findByHourContaining(query);
+            if(flights.isEmpty()){
+                flights = null;
+            }
         }
 
 
@@ -135,7 +164,7 @@ public class FlightController {
     @GetMapping("/deleteflight/{id}")
     public String deleteThroughId(@PathVariable(value = "id") Long id) {
         List<Reservation> reservations = reservationRepo.getallFlightReservations(this.getflight(id));
-        if (reservations.isEmpty()==true){
+        if (reservations.isEmpty()==false){
             reservationRepo.deleteAll(reservations);
         }
         flightRepository.deleteById(id);

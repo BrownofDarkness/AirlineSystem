@@ -38,8 +38,8 @@
 
         <a  th:if="${#request.userPrincipal != null && #request.userPrincipal.principal.getUser.getIsAdmin == false}" style="padding-left: 66px;padding-right: 66px;margin-right: 16px;" class="btn" th:href="@{/Profile_user{id} (id=${#request.userPrincipal.principal.getUser.getId})}">profile</a> 
 
-        <a  th:if="${#request.userPrincipal != null && #request.userPrincipal.principal.getUser.getIsAdmin == true}" style="padding-left: 66px;padding-right: 66px;margin-right: 16px;" class="btn" th:href="@{/dashboard_admin{id} (id=${#request.userPrincipal.principal.getUser.getId})}" >dashboard</a> 
-        <a th:if="${#request.userPrincipal == null || #request.userPrincipal.principal.getUser.getIsAdmin == false}" style="margin-left: 16px;" class="btn" th:href="@{/flightplanning}">View flight planning</a>
+        <a  th:if="${#request.userPrincipal != null && #request.userPrincipal.principal.getUser.getIsAdmin == true}" style="padding-left: 66px;padding-right: 66px;margin-right: 16px;" class="btn" th:href="@{/dashboard}" >dashboard</a> 
+        <a  style="margin-left: 16px;" class="btn" th:href="@{/flightplanning}">View flight planning</a>
     </div>
 
     <div class="fixed">

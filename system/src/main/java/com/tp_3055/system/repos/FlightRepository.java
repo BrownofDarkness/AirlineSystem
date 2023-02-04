@@ -24,6 +24,9 @@ public interface FlightRepository extends JpaRepository <Flight , Long>{
     @Query("SELECT f FROM Flight f WHERE f.arivalTown = ?1 order by f.price")
     List<Flight> searchByArivalTownLikeIgnoreCase( String arrivalTown);
 
+    @Query("SELECT f FROM Flight f WHERE ?1 = ?2 order by f.price")
+    List<Flight> searchByTag(String tag,  String query);
+
 
 
 
