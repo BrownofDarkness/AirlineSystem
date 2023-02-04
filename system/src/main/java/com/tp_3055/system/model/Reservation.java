@@ -64,7 +64,7 @@ public class Reservation {
         return dateCreation;
     }
 
-    public String ateExpiration() {
+    public String getDateExpiration() {
         return dateExpiration;
     }
 
