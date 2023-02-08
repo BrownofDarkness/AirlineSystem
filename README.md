@@ -12,3 +12,13 @@ Lancer votre serveur de Base de donnée que ce soit **Xampp**, **Lampp**, ou enc
 Now, vous pouvez lancer le projet dans votre editeur et Normalement le serveur devrait se lancer sans créer à nouveau la base de donnée.
 
 Il ne vous reste plus qu'à tester l'application :snowman:
+
+  Vous pouvez donc:
+  - s'inscrire
+  - se connecter: 
+    - si vous venez de vous inscrire vous serez un simple client.
+    - utiliser les identifiants: **username: admin**, **password:23456** pour vous connecter en tant qu'administrateur.
+  - faire des réservations, les annuler, les modifiers à convenace.
+  - modifier votre profile
+  - si vous ête admin vous pouvez également:
+    - ajouter des flights, les supprimer nb: la supression d'un flight entraine la suppresson de toutes les réservations y affairant
