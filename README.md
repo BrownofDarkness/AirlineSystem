@@ -7,7 +7,7 @@ Ceci es une application web permettant à un utiisateur Client de pouvoir effect
   Ensuite faire `mvn springboot:run` pour l'installation des dépendances , par ailleurs des **IDE** tels que  Intellij le font automatiquement à l'ouverture du projet.
 
 ## How to launch the project :star:
-Lancer votre serveur de Base de donnée que ce soit **Xampp**, **Lampp**, ou encore **Docer**. creer une base de donnée vide nommée _**airline_db**_ ensuite importer le fichier dans le dossier source.
+Lancer votre serveur de Base de donnée que ce soit **Xampp**, **Lampp**, ou encore **Docer**. creer une base de donnée vide nommée _**airline_db**_ ensuite importer le fichier du même nom dans le dossier source.
 
 Now, vous pouvez lancer le projet dans votre editeur et Normalement le serveur devrait se lancer sans créer à nouveau la base de donnée.
 
