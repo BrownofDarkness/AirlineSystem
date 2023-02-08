@@ -21,4 +21,4 @@ Il ne vous reste plus qu'à tester l'application :snowman:
   - faire des réservations, les annuler, les modifiers à convenace.
   - modifier votre profile
   - si vous ête admin vous pouvez également:
-    - ajouter des flights, les supprimer nb: la supression d'un flight entraine la suppresson de toutes les réservations y affairant
+    - ajouter des flights, les supprimer **NB**: la supression d'un flight entraine la suppresson de toutes les réservations y affairant
